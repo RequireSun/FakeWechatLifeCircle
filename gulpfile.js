@@ -26,16 +26,16 @@ var app = function (inPath) {
 gulp.task('html', function () {
     gulp.src(app('**/*.html'))
         .pipe(htmlmin({
-            removeComments: true,               // ÒÆ³ı×¢ÊÍ
-            collapseWhitespace: true,           // ÒÆ³ı¿Õ°×
-            conservativeCollapse: true,         // ËùÓĞ¿Õ°×±£ÁôÒ»¸ö¿Õ¸ñ
-            useShortDoctype: true,              // Ëõ¶Ì Doctype
-            removeScriptTypeAttributes: true,   // ÒÆ³ı script ±êÇ©µÄ type ÊôĞÔ
-            removeStyleLinkTypeAttributes: true,// ÒÆ³ı style ±êÇ©ºÍ link ±êÇ©µÄ type ÊôĞÔ
-            removeIgnored: true,                // ÒÆ³ı <% %> <? ?> ±êÇ©
-            minifyJS: true,                     // Ñ¹Ëõ js
-            minifyCSS: true,                    // Ñ¹Ëõ css
-            minifyURLs: true,                   // Ñ¹Ëõ url
+            removeComments: true,               // ç§»é™¤æ³¨é‡Š
+            collapseWhitespace: true,           // ç§»é™¤ç©ºç™½
+            conservativeCollapse: true,         // æ‰€æœ‰ç©ºç™½ä¿ç•™ä¸€ä¸ªç©ºæ ¼
+            useShortDoctype: true,              // ç¼©çŸ­ Doctype
+            removeScriptTypeAttributes: true,   // ç§»é™¤ script æ ‡ç­¾çš„ type å±æ€§
+            removeStyleLinkTypeAttributes: true,// ç§»é™¤ style æ ‡ç­¾å’Œ link æ ‡ç­¾çš„ type å±æ€§
+            removeIgnored: true,                // ç§»é™¤ <% %> <? ?> æ ‡ç­¾
+            minifyJS: true,                     // å‹ç¼© js
+            minifyCSS: true,                    // å‹ç¼© css
+            minifyURLs: true,                   // å‹ç¼© url
         }))
         .pipe(gulp.dest(dist('')))
         .pipe(livereload());
@@ -50,10 +50,17 @@ gulp.task('sass', function () {
         .pipe(livereload());
 });
 
-gulp.task('watch', ['html', 'sass'], function () {
+gulp.task('images', function () {
+    gulp.src(app('images/**/*.*'))
+        .pipe(gulp.dest(dist('images')))
+        .pipe(livereload());
+});
+
+gulp.task('watch', ['html', 'sass', 'images'], function () {
     livereload.listen();
     gulp.watch(app('**/*.html'), ['html']);
     gulp.watch(app('styles/**/*.scss'), ['sass']);
-    var server = liveServer.static('dist', 10088);
+    gulp.watch(app('images/**/*.*'), ['images']);
+    var server = liveServer.static('dist', 3000);
     server.start();
 });
