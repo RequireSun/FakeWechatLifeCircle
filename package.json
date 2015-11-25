@@ -1,0 +1,20 @@
+{
+  "name": "fakewechatlifecircle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RequireSun",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-htmlmin": "^1.2.0",
+    "gulp-live-server": "0.0.29",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-sass": "^2.1.0"
+  }
+}
