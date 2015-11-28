@@ -29,6 +29,7 @@ gulp.task('html', function () {
             removeComments: true,               // 移除注释
             collapseWhitespace: true,           // 移除空白
             conservativeCollapse: true,         // 所有空白保留一个空格
+            //collapseInlineTagWhitespace: true,
             useShortDoctype: true,              // 缩短 Doctype
             removeScriptTypeAttributes: true,   // 移除 script 标签的 type 属性
             removeStyleLinkTypeAttributes: true,// 移除 style 标签和 link 标签的 type 属性
