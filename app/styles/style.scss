@@ -46,19 +46,44 @@ article {
     }
 }
 
-.picture {
+article .picture {
     margin: 0 -.1875em;
 
+    &:after {
+        clear: both;
+        display: table;
+        content: " ";
+    }
+
+    .img-container {
+        float: left;
+        position: relative;
+        width: (100% / 3);
+        //height: (100% / 3);
+        margin: 0;
+        padding: (100% / 3) 0 0 0;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        &:nth-of-type(3):nth-last-of-type(2) {
+            clear: left;
+        }
+    }
+
     img {
-        display: inline-block;
-        width: 5.3125em;            /* 85px */
-        height: 5.1875em;           /* 83px */
-        margin: 0 .1875em;          /* 3px */
-        padding: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: .09375em;         /* 3px */
+        box-sizing: border-box;
     }
 }
 
-article section {
+article .info {
     time {
         color: #adadad;
         font-size: .625em;          /* 10px */
@@ -73,7 +98,7 @@ article section {
 .like {
     margin: 0 1em;
 
-    .heart_container {
+    .heart-container {
         width: 2em;
         height: 2em;
         text-align: center;
@@ -118,12 +143,13 @@ article section {
 
     &:after {
         position: absolute;
-        top: -.11em;
-        left: .04em;
+        top: .11em;
+        left: -.11em;
         content: '..';
         color: #fff;
         font-size: 2em;
         line-height: 0;
+        letter-spacing: -.38em;
     }
 }
 
